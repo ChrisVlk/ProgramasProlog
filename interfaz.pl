@@ -12,23 +12,24 @@ t3:-new(D, dialog('Tercera')),
     eliminado(D):- send(D, destroy).
 
 t4:-new(D,dialog('Cuarta')),
-    send(D,append,text item(bienvenido,'astute')),
+    send(D,append,text_item(bienvenido,'astute')),
     send(D,open).
 
 t5:-new(D,dialog('Quinta')),
-    new(T,text item(bienvenido)),
-    sned(D,open).
+    new(T,text_item(bienvenido)),
+    send(D,append,T),
+    send(D,open).
 
 t6:-new(D,dialog('Sexta')),
-    new(T,text item('a la clase')),
+    new(T,text_item('a la clase')),
     send(D,append,T),
     send(T,value,'astute'),
     send(D,open),
     get(T,value,Text),
     writeln(Text).
 
-tranaja:-new(D,dialog('Mira esto')),
-        new(T,text item(saluda)),
+trabaja:-new(D,dialog('Mira esto')),
+        new(T,text_item(saluda)),
         send(D,append,T),
         send(D,append,button(mostrar,message(@prolog,captura,T))),
         send(D,append,button(salir,message(@prolog,envia,D))),
